@@ -1,5 +1,3 @@
-import {Fragment} from 'react'
-
 const Header = ({ header }) => {
   // console.log(header)
   return (
@@ -19,7 +17,7 @@ const Part = ({ part }) => {
 }
 
 const Content = ({ parts }) => {
-  console.log("content componenet", parts)
+  // console.log("content componenet", parts)
   return (
     <>
       {parts.map((part) => (
@@ -38,22 +36,13 @@ const Total = ({ parts }) => {
   )
 }
 
-const Course = ({ courses }) => {
-  // console.log(courses)
-  // console.log(courses[0].parts)
+const Course = ({course}) => {
+  // console.log("Course component", course)
   return (
     <div>
-      {courses.map((course) => (
-        <Fragment key={course.id}>
-          <Header header={course.name} />
-          <Content parts={course.parts} />
-          <Total parts={course.parts} />
-        </Fragment>
-      ))}
-
-      {/* <Header header={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} /> */}
+      <Header header={course.name}/>
+      <Content parts={course.parts}/>
+      <Total parts={course.parts}/>
     </div>
   )
 }
