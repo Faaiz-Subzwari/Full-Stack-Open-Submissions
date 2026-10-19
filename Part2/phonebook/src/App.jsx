@@ -1,13 +1,8 @@
 import { useState } from 'react'
 
-const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', id: "1", number:"123-456-7890" }
-  ])
-  const [newName, setNewName] = useState('')
-  const [newNumber, setNewNumber] = useState('')
+const PersonForm = ({persons, setPersons, newName, setNewName, onNameChange, newNumber, setNewNumber, onNewNumber}) => {
 
-  const addName = (event) => {
+    const addName = (event) => {
     event.preventDefault()
     var nameFound = false
     persons.forEach(element => {
@@ -30,6 +25,37 @@ const App = () => {
     setNewNumber('')
   }
 
+  return (
+    <form onSubmit={addName}>
+      <div>
+        name: <input value={newName} onChange={onNameChange} />
+      </div>
+      <div>
+        number: <input value={newNumber} onChange={onNewNumber} />
+      </div>
+      <div>
+        <button type="submit">add</button>
+      </div>
+    </form>
+  )
+}
+
+const Persons = ({persons}) => {
+  return(
+    <ul>
+        {persons.map(person =>
+          <li key={person.id}>{person.name} {person.number}</li>)}
+      </ul>
+  )
+}
+
+const App = () => {
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas', id: "1", number: "123-456-7890" }
+  ])
+  const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
+
   const onNameChange = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
@@ -44,22 +70,10 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addName}>
-        <div>
-          name: <input value={newName} onChange={onNameChange} />
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={onNewNumber}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      <ul>
-        {persons.map(person =>
-          <li key={person.id}>{person.name} {person.number}</li>)}
-      </ul>
+      <h3>Add a new person</h3>
+      <PersonForm persons={persons} setPersons={setPersons} newName={newName} setNewName={setNewName} onNameChange={onNameChange} newNumber={newNumber} setNewNumber={setNewNumber} onNewNumber={onNewNumber}/>
+      <h3>Numbers</h3>
+      <Persons persons={persons}/>
     </div>
   )
 }
