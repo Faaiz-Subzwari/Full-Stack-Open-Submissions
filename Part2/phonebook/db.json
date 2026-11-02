@@ -24,6 +24,36 @@
       "name": "James",
       "id": "Wl3WOlCUevg",
       "number": "123-456"
+    },
+    {
+      "name": "Jimmy",
+      "number": "123",
+      "id": "iBdeP_OGHyw"
+    },
+    {
+      "name": "John",
+      "number": "4134",
+      "id": "DikNEFwjPbs"
+    },
+    {
+      "name": "mary",
+      "number": "123444",
+      "id": "nsTcQcmnrEo"
+    },
+    {
+      "name": "david",
+      "number": "123123123",
+      "id": "LWNwh2x6EyU"
+    },
+    {
+      "name": "arto",
+      "number": "1111",
+      "id": "KjG1DGPZxP4"
+    },
+    {
+      "name": "jacob",
+      "number": "12343",
+      "id": "33bpZsOLvbw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
